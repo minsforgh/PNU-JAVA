@@ -1,0 +1,19 @@
+package uk.epl.player;
+public class Forward extends Player {
+    private int ACCELERATION_POINT = 10;
+
+    public Forward(String name, int jerseyNumber, int speed, int stamina, int passing) {
+        super(name, jerseyNumber, speed, stamina, passing);
+        position = new Position(0, 0);
+    }
+    @Override
+    protected float getSpeed() {
+        return super.getSpeed() + ACCELERATION_POINT;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Player Name='%s, JerseyNumber=%d ", getName(), getJerseyNumber()) + getPosition() +
+                String.format("Forward SPEED=%.1f, , STAMINA=%.1f, , PASSING=%.1f", getSpeed(), getStamina(), getPassing());
+    }
+}
